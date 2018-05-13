@@ -8,6 +8,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
+    title: 'Ranklists',
+    icon: 'nb-bar-chart',
+    link: '/pages/ranklists',
+  },
+  {
     title: 'FEATURES',
     group: true,
   },

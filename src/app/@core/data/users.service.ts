@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+import { UserModel } from '../../pages/models/user.model';
 
 let counter = 0;
 
 @Injectable()
 export class UserService {
 
-  private users = {
-    nick: { name: 'Nick Jones', picture: 'assets/images/nick.png' },
-    eva: { name: 'Eva Moor', picture: 'assets/images/eva.png' },
-    jack: { name: 'Jack Williams', picture: 'assets/images/jack.png' },
-    lee: { name: 'Lee Wong', picture: 'assets/images/lee.png' },
-    alan: { name: 'Alan Thompson', picture: 'assets/images/alan.png' },
-    kate: { name: 'Kate Martinez', picture: 'assets/images/kate.png' },
-  };
+  private users: UserModel[] = [
+    { name: 'Cvetozar Kalchev', picture: 'assets/images/nick.png', club: 'Liverpool', points: 2301, consecutiveEvents: 26 },
+    { name: 'Borislav Borisov', picture: 'assets/images/alan.png', club: 'Barcelona', points: 2672, consecutiveEvents: 27 },
+    { name: 'Petko Chepishev', picture: 'assets/images/jack.png', club: 'Real Madrid', points: 2430, consecutiveEvents: 24 },
+    { name: 'Vladimir Voev', picture: 'assets/images/lee.png', club: 'Juventus', points: 2211, consecutiveEvents: 22 },
+    { name: 'Stefan Ludzhev', picture: 'assets/images/eva.png', club: 'Atletico Madrid', points: 1996, consecutiveEvents: 18 },
+    { name: 'Kate Bosch', picture: 'assets/images/kate.png', club: 'Liverpool', points: 1995, consecutiveEvents: 19 },
+  ] as UserModel[];
 
   private userArray: any[];
 
@@ -22,7 +23,7 @@ export class UserService {
     // this.userArray = Object.values(this.users);
   }
 
-  getUsers(): Observable<any> {
+  getUsers(): Observable<UserModel[]> {
     return Observable.of(this.users);
   }
 
