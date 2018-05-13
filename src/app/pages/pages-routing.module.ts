@@ -1,9 +1,10 @@
-import { RanklistsComponent } from './ranklists/ranklists.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PointsRanklistComponent } from './ranklists/points/points.component';
+import { MatchesComponent } from './matches/matches.component';
 
 const routes: Routes = [{
   path: '',
@@ -19,8 +20,20 @@ const routes: Routes = [{
       pathMatch: 'full',
     },
     {
-      path: 'ranklists',
-      component: RanklistsComponent,
+      path: 'ranklists/points',
+      component: PointsRanklistComponent,
+    },
+    {
+      path: 'ranklists/consecutive',
+      component: PointsRanklistComponent,
+    },
+    {
+      path: 'ranklists/teams',
+      component: PointsRanklistComponent,
+    },
+    {
+      path: 'matches',
+      component: MatchesComponent,
     },
   ],
 }];

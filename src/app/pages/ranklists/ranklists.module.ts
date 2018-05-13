@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 
 import { ThemeModule } from '../../@theme/theme.module';
-import { RanklistsComponent } from './ranklists.component';
+import { PointsRanklistComponent } from './points/points.component';
 
 
 @NgModule({
@@ -10,7 +10,7 @@ import { RanklistsComponent } from './ranklists.component';
     ThemeModule,
   ],
   declarations: [
-    RanklistsComponent,
+    PointsRanklistComponent,
   ],
 })
 export class RanklistsModule { }

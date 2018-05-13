@@ -1,0 +1,27 @@
+<div class="row">
+  <nb-card [size]="breakpoint.width >= breakpoints.xxxl || breakpoint.width < breakpoints.md ? 'large' : 'xlarge'" class="full-width">
+    <nb-tabset fullWidth>
+      <nb-tab *ngIf="globalRanklist" tabTitle="Global">
+        <div class="contact" *ngFor="let p of globalRanklist">
+          <nb-user [picture]="p.picture" [name]="p.name" [title]="p.club" size="large">
+          </nb-user>
+          <span class="time">{{ p.points }}</span>
+        </div>
+      </nb-tab>
+      <nb-tab *ngIf="localRanklist" tabTitle="Local">
+        <div class="contact" *ngFor="let p of localRanklist">
+          <nb-user [picture]="p.picture" [name]="p.name" [title]="p.club" size="large">
+          </nb-user>
+          <span class="time">{{ p.points }}</span>
+        </div>
+      </nb-tab>
+      <nb-tab *ngIf="myTeamRanklist" tabTitle="For my team">
+          <div class="contact" *ngFor="let p of myTeamRanklist">
+            <nb-user [picture]="p.picture" [name]="p.name" [title]="p.club" size="large">
+            </nb-user>
+            <span class="time">{{ p.points }}</span>
+          </div>
+        </nb-tab>
+    </nb-tabset>
+  </nb-card>
+</div>

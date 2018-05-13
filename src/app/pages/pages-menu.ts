@@ -10,7 +10,25 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Ranklists',
     icon: 'nb-bar-chart',
-    link: '/pages/ranklists',
+    children: [
+      {
+        title: 'By points',
+        link: '/pages/ranklists/points',
+      },
+      {
+        title: 'By consecutive maches',
+        link: '/pages/ranklists/consecutive',
+      },
+      {
+        title: 'By team',
+        link: '/pages/ranklists/teams',
+      },
+    ],
+  },
+  {
+    title: 'Matches',
+    icon: 'nb-home',
+    link: '/pages/matches',
   },
   {
     title: 'FEATURES',

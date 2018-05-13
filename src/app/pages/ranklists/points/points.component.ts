@@ -1,18 +1,19 @@
-import { UserModel } from './../models/user.model';
+import { UserModel } from '../../models/user.model';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbThemeService, NbMediaBreakpoint, NbMediaBreakpointsService } from '@nebular/theme';
 
-import { UserService } from '../../@core/data/users.service';
+import { UserService } from '../../../@core/data/users.service';
 
 @Component({
-  selector: 'ngx-ranklists',
-  styleUrls: ['./ranklists.component.scss'],
-  templateUrl: './ranklists.component.html',
+  selector: 'ngx-points',
+  styleUrls: ['./points.component.scss'],
+  templateUrl: './points.component.html',
 })
-export class RanklistsComponent implements OnInit, OnDestroy {
+export class PointsRanklistComponent implements OnInit, OnDestroy {
 
-  pointsGlobalRanklist: UserModel[];
-  consecutiveRanklist: UserModel[];
+  globalRanklist: UserModel[];
+  localRanklist: UserModel[];
+  myTeamRanklist: UserModel[];
   breakpoint: NbMediaBreakpoint;
   breakpoints: any;
   themeSubscription: any;
@@ -32,8 +33,9 @@ export class RanklistsComponent implements OnInit, OnDestroy {
 
     this.userService.getUsers()
       .subscribe((users: UserModel[]) => {
-        this.pointsGlobalRanklist = users.slice().sort((a, b) => b.points - a.points);
-        this.consecutiveRanklist = users.slice().sort((a, b) => b.consecutiveEvents - a.consecutiveEvents);
+        this.globalRanklist = users.slice().sort((a, b) => b.points - a.points);
+        this.localRanklist = users.slice().sort((a, b) => b.points - a.points);
+        this.myTeamRanklist = users.slice().filter(u => u.club === 'Real Madrid').sort((a, b) => b.points - a.points);
       });
   }
 
